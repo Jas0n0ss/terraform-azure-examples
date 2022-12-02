@@ -1,18 +1,23 @@
 
 ## Examples for the Virtual Machine resources
 
-[root@srv1 azure-vm]#  Reference
-https://developer.hashicorp.com/terraform/tutorials/azure-get-started
+>  Reference
 
-https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/virtual-machines
+- https://developer.hashicorp.com/terraform/tutorials/azure-get-started
 
-https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform
+- https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/virtual-machines
+
+- https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform
 
 
-- install azure cli
+> install azure cli
+
 https://learn.microsoft.com/zh-cn/cli/azure/install-azure-cli
-- install terraform 
+> install terraform 
+
 https://developer.hashicorp.com/terraform/downloads
+
+> Get started
 
 ```Bash
 # create related files
