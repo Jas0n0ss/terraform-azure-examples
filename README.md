@@ -4,5 +4,6 @@ terraform-azure-examples-Tutorials
 https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
 
 
-### example on azure VM
-[Terraform manage azure VM](azure-vm)
+### Example on azure VM
+[Terraform Create azure VM](azure-vm)
+[Terraform Create azure VNET](azure-vnet)
