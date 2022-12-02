@@ -6,7 +6,7 @@ https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/
 
 # Example Usage
 
-```json
+```
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
   location = "West Europe"
