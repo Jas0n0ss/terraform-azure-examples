@@ -126,14 +126,12 @@ Outputs:
 login_server = "vxsqechz.azurecr.io"
 [root@srv1 azure-acr]# terraform output
 login_server = "vxsqechz.azurecr.io"
-[root@srv1 azure-acr]# az acr list  --resource-group vxsqechz-resources -o table
-NAME      RESOURCE GROUP      LOCATION    SKU       LOGIN SERVER         CREATION DATE         ADMIN ENABLED
---------  ------------------  ----------  --------  -------------------  --------------------  ---------------
-vxsqechz  vxsqechz-resources  eastasia    Standard  vxsqechz.azurecr.io  2022-12-03T13:55:44Z  False
-
 ```
 ## Verify that the resources are created
 
 ```bash
 [root@srv1 azure-acr]# az acr list  --resource-group vxsqechz-resources -o table
+NAME      RESOURCE GROUP      LOCATION    SKU       LOGIN SERVER         CREATION DATE         ADMIN ENABLED
+--------  ------------------  ----------  --------  -------------------  --------------------  ---------------
+vxsqechz  vxsqechz-resources  eastasia    Standard  vxsqechz.azurecr.io  2022-12-03T13:55:44Z  False
 ```
