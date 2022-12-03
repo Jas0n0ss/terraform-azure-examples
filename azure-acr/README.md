@@ -2,7 +2,7 @@
 
 This example provisions an Azure Container Registry
 
-## Creates
+## Create
 
 1. A Resource Group
 2. An [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
@@ -134,4 +134,104 @@ login_server = "vxsqechz.azurecr.io"
 NAME      RESOURCE GROUP      LOCATION    SKU       LOGIN SERVER         CREATION DATE         ADMIN ENABLED
 --------  ------------------  ----------  --------  -------------------  --------------------  ---------------
 vxsqechz  vxsqechz-resources  eastasia    Standard  vxsqechz.azurecr.io  2022-12-03T13:55:44Z  False
+```
+
+## clean up
+
+```bash
+[root@srv1 azure-acr]# terraform plan -destroy -out main.destroy.tfplan
+random_string.name: Refreshing state... [id=vxsqechz]
+azurerm_resource_group.example: Refreshing state... [id=/subscriptions/9f64194f-f35d-4a5c-8d16-60811524df8d/resourceGroups/vxsqechz-resources]
+azurerm_container_registry.example: Refreshing state... [id=/subscriptions/9f64194f-f35d-4a5c-8d16-60811524df8d/resourceGroups/vxsqechz-resources/providers/Microsoft.ContainerRegistry/registries/vxsqechz]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated
+with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # azurerm_container_registry.example will be destroyed
+  - resource "azurerm_container_registry" "example" {
+      - admin_enabled                 = false -> null
+      - anonymous_pull_enabled        = false -> null
+      - data_endpoint_enabled         = false -> null
+      - encryption                    = [
+          - {
+              - enabled            = false
+              - identity_client_id = ""
+              - key_vault_key_id   = ""
+            },
+        ] -> null
+      - export_policy_enabled         = true -> null
+      - id                            = "/subscriptions/9f64194f-f35d-4a5c-8d16-60811524df8d/resourceGroups/vxsqechz-resources/providers/Microsoft.ContainerRegistry/registries/vxsqechz" -> null
+      - location                      = "eastasia" -> null
+      - login_server                  = "vxsqechz.azurecr.io" -> null
+      - name                          = "vxsqechz" -> null
+      - network_rule_bypass_option    = "AzureServices" -> null
+      - network_rule_set              = [] -> null
+      - public_network_access_enabled = true -> null
+      - quarantine_policy_enabled     = false -> null
+      - resource_group_name           = "vxsqechz-resources" -> null
+      - retention_policy              = [
+          - {
+              - days    = 7
+              - enabled = false
+            },
+        ] -> null
+      - sku                           = "Standard" -> null
+      - tags                          = {} -> null
+      - trust_policy                  = [
+          - {
+              - enabled = false
+            },
+        ] -> null
+      - zone_redundancy_enabled       = false -> null
+    }
+
+  # azurerm_resource_group.example will be destroyed
+  - resource "azurerm_resource_group" "example" {
+      - id       = "/subscriptions/9f64194f-f35d-4a5c-8d16-60811524df8d/resourceGroups/vxsqechz-resources" -> null
+      - location = "eastasia" -> null
+      - name     = "vxsqechz-resources" -> null
+      - tags     = {} -> null
+    }
+
+  # random_string.name will be destroyed
+  - resource "random_string" "name" {
+      - id          = "vxsqechz" -> null
+      - length      = 8 -> null
+      - lower       = true -> null
+      - min_lower   = 0 -> null
+      - min_numeric = 0 -> null
+      - min_special = 0 -> null
+      - min_upper   = 0 -> null
+      - number      = false -> null
+      - numeric     = false -> null
+      - result      = "vxsqechz" -> null
+      - special     = false -> null
+      - upper       = false -> null
+    }
+
+Plan: 0 to add, 0 to change, 3 to destroy.
+
+Changes to Outputs:
+  - login_server = "vxsqechz.azurecr.io" -> null
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Saved the plan to: main.destroy.tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "main.destroy.tfplan"
+[root@srv1 azure-acr]# terraform apply  main.destroy.tfplan
+azurerm_container_registry.example: Destroying... [id=/subscriptions/9f64194f-f35d-4a5c-8d16-60811524df8d/resourceGroups/vxsqechz-resources/providers/Microsoft.ContainerRegistry/registries/vxsqechz]
+azurerm_container_registry.example: Destruction complete after 6s
+azurerm_resource_group.example: Destroying... [id=/subscriptions/9f64194f-f35d-4a5c-8d16-60811524df8d/resourceGroups/vxsqechz-resources]
+azurerm_resource_group.example: Still destroying... [id=/subscriptions/9f64194f-f35d-4a5c-8d16-...df8d/resourceGroups/vxsqechz-resources, 10s elapsed]
+azurerm_resource_group.example: Destruction complete after 16s
+random_string.name: Destroying... [id=vxsqechz]
+random_string.name: Destruction complete after 0s
+
+Apply complete! Resources: 0 added, 0 changed, 3 destroyed.
+
 ```
