@@ -7,11 +7,11 @@ terraform-azure-examples-Tutorials
 https://learn.microsoft.com/en-us/azure/developer/terraform/
 
 ## Examples
-[Terraform Create azure VM](azure-vm)
-[Terraform Create azure VNET](azure-vnet)
-[Terraform Create azure acr](azure-acr)
-[Terraform Create azure sqlvm](azure-sqlvm)
-[Terraform Create azure mysql](azure-mysql)
+- [Terraform Create azure VM](azure-vm) 
+- [Terraform Create azure VNET](azure-vnet)
+- [Terraform Create azure acr](azure-acr)
+- [Terraform Create azure sqlvm](azure-sqlvm)
+- [Terraform Create azure mysql](azure-mysql)
 
 
 ## Terraform usage examples
