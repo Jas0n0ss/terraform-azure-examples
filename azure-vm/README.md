@@ -82,6 +82,7 @@ azvmlab-vm  azvmlab-resources  VM running    20.205.119.197           eastasia
 
 ```
 # clean up 
+```
 [root@srv1 azure-vm]#  terraform plan -destroy -out main.destroy.tfplan
 [root@srv1 azure-vm]#  terraform apply main.destroy.tfplan
 ```
