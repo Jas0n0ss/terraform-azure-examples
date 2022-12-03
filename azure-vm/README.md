@@ -61,6 +61,10 @@ Outputs:
 admin_username = "adminuser"
 computer_name = "azvmlab-vm"
 public_ip_address = "20.205.35.219"
+[root@srv1 ~]# az vm list --resource-group azvmlab-resources --show-details -o table
+Name        ResourceGroup      PowerState    PublicIps      Fqdns    Location    Zones
+----------  -----------------  ------------  -------------  -------  ----------  -------
+azvmlab-vm  azvmlab-resources  VM running    20.205.35.219           eastasia
 [root@srv1 azure-vm]# ssh adminuser@20.205.35.219
 The authenticity of host '20.205.35.219 (20.205.35.219)' can't be established.
 ECDSA key fingerprint is SHA256:6DA/ljluFG5cYpgxuDrutNGDsA7SwPPyRzZ2S1ewrpY.
@@ -98,23 +102,10 @@ packages.  If interested, email info@perforce.com or call +1 612.517.2100.
        CPE OS Name: cpe:/o:centos:centos:7
             Kernel: Linux 3.10.0-1160.76.1.el7.x86_64
       Architecture: x86-64
-[adminuser@azvmlab-vm ~]$
-
 
 ```
 
-> Check Out
-
-```bash
-[root@srv1 azure-vm]# az login
-[root@srv1 azure-vm]# az vm list --resource-group azvmlab-resources --show-details -o table
-Name        ResourceGroup      PowerState    PublicIps       Fqdns    Location    Zones
-----------  -----------------  ------------  --------------  -------  ----------  -------
-azvmlab-vm  azvmlab-resources  VM running    20.205.119.197           eastasia
-[root@srv1 azure-vm]# ssh adminuser@20.205.119.197
-
-```
-# clean up 
+## clean up 
 ```
 [root@srv1 azure-vm]#  terraform plan -destroy -out main.destroy.tfplan
 [root@srv1 azure-vm]#  terraform apply main.destroy.tfplan
@@ -122,7 +113,20 @@ azvmlab-vm  azvmlab-resources  VM running    20.205.119.197           eastasia
 Apply complete! Resources: 0 added, 0 changed, 8 destroyed.
 
 ```
+> Need to Know
 
+### make sure you have ssh key created on local machine
+
+```bash
+[root@srv1 ~]# ssh-keygen
+```
+We have defined `public_key` in `main.tf` file, when linux vm craeted we have to use ssh-key to login 
+```hcl
+ admin_ssh_key {
+    username   = "adminuser"
+    public_key = file("~/.ssh/id_rsa.pub")
+  }
+```
 
 
 
