@@ -36,6 +36,22 @@ output "public_ip_address" {
   value = azurerm_linux_virtual_machine.main.public_ip_address
 }
 ```
+
+> Need to Know
+
+### make sure you have ssh key created on local machine
+
+```bash
+[root@srv1 ~]# ssh-keygen
+```
+We have defined `public_key` in `main.tf` file, when linux vm craeted we have to use ssh-key to login 
+```hcl
+ admin_ssh_key {
+    username   = "adminuser"
+    public_key = file("~/.ssh/id_rsa.pub")
+  }
+```
+
 ```Bash
 [root@srv1 azure-vm]# tree
 .
@@ -113,20 +129,7 @@ packages.  If interested, email info@perforce.com or call +1 612.517.2100.
 Apply complete! Resources: 0 added, 0 changed, 8 destroyed.
 
 ```
-> Need to Know
 
-### make sure you have ssh key created on local machine
-
-```bash
-[root@srv1 ~]# ssh-keygen
-```
-We have defined `public_key` in `main.tf` file, when linux vm craeted we have to use ssh-key to login 
-```hcl
- admin_ssh_key {
-    username   = "adminuser"
-    public_key = file("~/.ssh/id_rsa.pub")
-  }
-```
 
 
 
