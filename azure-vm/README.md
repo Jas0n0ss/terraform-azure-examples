@@ -85,6 +85,9 @@ azvmlab-vm  azvmlab-resources  VM running    20.205.119.197           eastasia
 ```
 [root@srv1 azure-vm]#  terraform plan -destroy -out main.destroy.tfplan
 [root@srv1 azure-vm]#  terraform apply main.destroy.tfplan
+...
+Apply complete! Resources: 0 added, 0 changed, 8 destroyed.
+
 ```
 
 
