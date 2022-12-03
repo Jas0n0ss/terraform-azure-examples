@@ -3,7 +3,7 @@ azurerm_mssql_virtual_machine
 
 - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_virtual_machine
 
-```
+```hcl
 data "azurerm_virtual_machine" "example" {
   name                = "example-vm"
   resource_group_name = "example-resources"
